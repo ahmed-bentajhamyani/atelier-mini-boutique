@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini-boutique</title>
+    <!-- Tailwind CSS (version navigateur, sans installation) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body class="bg-slate-50 text-slate-800 font-sans">
+    <header class="bg-sky-900 text-white px-6 py-4">
+      <h1 class="text-2xl font-bold">Mini-boutique</h1>
+    </header>
+
+    <main class="grid gap-6 p-6 lg:grid-cols-[1fr_320px] lg:items-start">
+      <!-- CATALOGUE -->
+      <section aria-labelledby="catalog-title">
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <h2 id="catalog-title" class="text-xl font-semibold mr-auto">
+            Produits
+          </h2>
+
+          <label for="category" class="font-medium">Catégorie</label>
+          <select
+            id="category"
+            class="border border-slate-300 rounded-md px-3 py-2 bg-white"
+          >
+            <option value="all">Toutes</option>
+            <option value="beauty">Beauty</option>
+            <option value="fragrances">Fragrances</option>
+            <option value="furniture">Furniture</option>
+          </select>
+        </div>
+
+        <!-- Les cartes produits sont générées ici par displayProducts() -->
+        <div
+          id="products"
+          class="grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
+        ></div>
+      </section>
+
+      <!-- PANIER -->
+      <aside
+        aria-labelledby="cart-title"
+        class="bg-white border border-slate-200 rounded-xl p-4"
+      >
+        <h2 id="cart-title" class="text-xl font-semibold">
+          Panier (<span id="cart-count">0</span>)
+        </h2>
+
+        <!-- Les lignes du panier sont générées ici par displayCart() -->
+        <ul id="cart-items" class="flex flex-col gap-2 my-4"></ul>
+
+        <p class="border-t border-slate-200 pt-3">
+          Total : <strong id="cart-total">0.00 $</strong>
+        </p>
+      </aside>
+    </main>
+  </body>
+</html>
